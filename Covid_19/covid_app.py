@@ -6,6 +6,13 @@ import dash_table
 from dash.dependencies import Input, Output, State
 import os
 
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
+app.config.suppress_callback_exceptions = True
+
 os.chdir('C:/Users/poddara1/OneDrive - Novartis Pharma AG/Other Initiatives/Covid_19')
 
 df = pd.read_excel('TASK1_annotated_1.xlsx', sheet_name = 'Newone')
@@ -31,10 +38,6 @@ def generate_table(dff):
         'fontWeight': 'bold'
     },
             )
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div([
         html.Div([
